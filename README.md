@@ -20,3 +20,10 @@ This project automates the deployment of a simple Node.js web application on an 
 ## How to Run the Deployment
 ```bash
 ansible-playbook deploy.yml
+
+## Rollback
+
+To rollback the deployment, run:
+
+```bash
+ansible-playbook rollback.yml
