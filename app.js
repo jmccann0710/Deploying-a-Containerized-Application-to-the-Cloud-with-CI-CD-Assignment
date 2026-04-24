@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 
@@ -143,3 +144,19 @@ app.delete('/orders/:id', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+=======
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello from my containerized app!');
+});
+
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(3000, '0.0.0.0', () => {
+    console.log('Server running on port 3000');
+  });
+}
+
+module.exports = app;
+>>>>>>> 0e5b9d9 (added Jest tests and updated app for testing)
