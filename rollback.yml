@@ -1,0 +1,16 @@
+- name: Rollback Node.js App
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Stop application
+      command: pm2 stop my-node-app
+      ignore_errors: yes
+
+    - name: Delete application
+      command: pm2 delete my-node-app
+      ignore_errors: yes
+
+    - name: Restart previous version
+      command: pm2 start app.js --name my-node-app
+      
